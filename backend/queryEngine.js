@@ -67,7 +67,7 @@ if (!global.inMemoryStore) {
     history: []
   };
 
-  // Seed In-Memory Rows (Default cybersecurity dataset)
+  // Seed In-Memory Rows (Default production-grade multi-model document-graph dataset)
   const m = global.inMemoryStore;
   
   m.rows.push(

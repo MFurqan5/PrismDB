@@ -167,7 +167,7 @@ async function seedData() {
       console.log('Seeded graph relationships.');
     }
 
-    console.log('Cybersecurity demo data seeded successfully!');
+    console.log('production-grade multi-model document-graph demo data seeded successfully!');
   } catch (error) {
     console.error('Seeder execution failed:', error);
   }

@@ -1,6 +1,6 @@
-# PrismDB - Cyberpunk ADBMS Workbench
+# PrismDB - premium dark-themed ADBMS Workbench
 
-PrismDB is a production-quality cybersecurity database workbench. It features a custom SQL compiler (Lexer, Parser, and AST Executor) running on a Node.js/Express backend, which compiles SQL queries and performs operations on MongoDB Atlas or a local in-memory sandbox. The UI is a dark cyberpunk React-based IDE.
+PrismDB is a production-quality production-grade multi-model document-graph database workbench. It features a custom SQL compiler (Lexer, Parser, and AST Executor) running on a Node.js/Express backend, which compiles SQL queries and performs operations on MongoDB Atlas or a local in-memory sandbox. The UI is a dark premium dark-themed React-based IDE.
 
 ---
 

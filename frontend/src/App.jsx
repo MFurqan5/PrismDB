@@ -174,10 +174,10 @@ function GraphVisualizer({ graphData }) {
   return (
     <div className="relative w-full h-[230px] bg-[#05070a] rounded border border-white/5 overflow-hidden flex flex-col">
       <div className="flex items-center justify-between px-3 py-1.5 bg-[#0b0c10]/80 border-b border-white/5 select-none">
-        <span className="text-[10px] font-mono text-cyber-cyan uppercase font-bold flex items-center gap-1.5">
+        <span className="text-[10px] font-mono text-multi-model-cyan uppercase font-bold flex items-center gap-1.5">
           <Network className="w-3.5 h-3.5" /> Interactive Relationship Graph
         </span>
-        <span className="text-[9px] font-mono text-cyber-muted">Drag nodes to rearrange. Hover to inspect documents.</span>
+        <span className="text-[9px] font-mono text-multi-model-muted">Drag nodes to rearrange. Hover to inspect documents.</span>
       </div>
 
       <div className="flex-1 relative overflow-hidden">
@@ -299,7 +299,7 @@ function GraphVisualizer({ graphData }) {
             }}
             className="w-56 bg-[#090d16]/95 border border-white/10 rounded shadow-cyan-glow p-2 text-[9px] font-mono z-50 text-left select-none"
           >
-            <div className="font-bold text-cyber-cyan border-b border-white/5 pb-1 mb-1.5 flex justify-between items-center">
+            <div className="font-bold text-multi-model-cyan border-b border-white/5 pb-1 mb-1.5 flex justify-between items-center">
               <span>{hoveredNode.id}</span>
               <span className="text-[7.5px] px-1 bg-white/10 text-white/70 uppercase rounded">{hoveredNode.table}</span>
             </div>
@@ -745,7 +745,7 @@ export default function App() {
       if (!tok) return;
 
       if (tok.startsWith('--')) {
-        html += `<span class="text-cyber-muted italic">${escapeHtml(tok)}</span>`;
+        html += `<span class="text-multi-model-muted italic">${escapeHtml(tok)}</span>`;
       } else if ((tok.startsWith("'") && tok.endsWith("'")) || (tok.startsWith('"') && tok.endsWith('"'))) {
         html += `<span class="syntax-string">${escapeHtml(tok)}</span>`;
       } else if (keywords.has(tok.toUpperCase())) {
@@ -862,7 +862,7 @@ export default function App() {
 
   // Reset demo datasets
   const handleFactoryReset = async () => {
-    if (window.confirm('Reset database to default seeded cybersecurity metrics?')) {
+    if (window.confirm('Reset database to default seeded production-grade multi-model document-graph metrics?')) {
       try {
         const res = await fetch('/api/seed', { method: 'POST' });
         if (res.ok) {
@@ -1007,8 +1007,8 @@ export default function App() {
   const renderAnalyticsCharts = () => {
     if (!activeTab.results || activeTab.results.rows.length === 0) {
       return (
-        <div className="flex flex-col items-center justify-center h-full text-cyber-muted space-y-2">
-          <BarChart2 className="w-12 h-12 text-cyber-muted/40 animate-pulse" />
+        <div className="flex flex-col items-center justify-center h-full text-multi-model-muted space-y-2">
+          <BarChart2 className="w-12 h-12 text-multi-model-muted/40 animate-pulse" />
           <p className="text-sm">Execute a query statement to generate visual analytics charts</p>
         </div>
       );
@@ -1084,7 +1084,7 @@ export default function App() {
         {/* Bar/Line Chart */}
         {aggregateKeys.length > 0 && (
           <div className="glass-panel p-4 rounded border border-white/5 flex flex-col h-[280px]">
-            <h4 className="text-xs font-semibold text-cyber-cyan uppercase tracking-wider mb-2 flex items-center gap-1">
+            <h4 className="text-xs font-semibold text-multi-model-cyan uppercase tracking-wider mb-2 flex items-center gap-1">
               <BarChart2 className="w-3.5 h-3.5" /> Performance & Values Analytics
             </h4>
             <div className="flex-1 w-full text-xs">
@@ -1109,7 +1109,7 @@ export default function App() {
         {/* Categorical Distribution Pie Chart */}
         {categoricalCols.length > 0 && pieData.length > 0 && (
           <div className="glass-panel p-4 rounded border border-white/5 flex flex-col h-[280px]">
-            <h4 className="text-xs font-semibold text-cyber-purple uppercase tracking-wider mb-2 flex items-center gap-1">
+            <h4 className="text-xs font-semibold text-multi-model-purple uppercase tracking-wider mb-2 flex items-center gap-1">
               <PieIcon className="w-3.5 h-3.5" /> Categorical Fields Distribution ({firstCat})
             </h4>
             <div className="flex-1 w-full text-xs flex items-center justify-center">
@@ -1141,7 +1141,7 @@ export default function App() {
         {/* Trend Line Chart */}
         {aggregateKeys.length > 0 && (
           <div className="glass-panel p-4 rounded border border-white/5 flex flex-col h-[280px] md:col-span-2">
-            <h4 className="text-xs font-semibold text-cyber-green uppercase tracking-wider mb-2 flex items-center gap-1">
+            <h4 className="text-xs font-semibold text-multi-model-green uppercase tracking-wider mb-2 flex items-center gap-1">
               <Network className="w-3.5 h-3.5" /> System Metrics Trend Analysis
             </h4>
             <div className="flex-1 w-full text-xs">
@@ -1237,19 +1237,19 @@ export default function App() {
   ];
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-cyber-bg text-cyber-text" onClick={() => setContextMenu(null)}>
+    <div className="flex flex-col h-screen w-screen bg-multi-model-bg text-multi-model-text" onClick={() => setContextMenu(null)}>
       
       {/* ---------------------------------------------------------------------
           TOP NAVBAR
           --------------------------------------------------------------------- */}
-      <header className="flex items-center justify-between px-4 h-12 border-b border-white/5 bg-cyber-card/80 backdrop-blur-md z-40 select-none">
+      <header className="flex items-center justify-between px-4 h-12 border-b border-white/5 bg-multi-model-card/80 backdrop-blur-md z-40 select-none">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5">
-            <span className="w-5 h-5 rounded flex items-center justify-center bg-gradient-to-tr from-cyber-purple to-cyber-cyan text-black font-extrabold text-[10px] tracking-tighter">
+            <span className="w-5 h-5 rounded flex items-center justify-center bg-gradient-to-tr from-multi-model-purple to-multi-model-cyan text-black font-extrabold text-[10px] tracking-tighter">
               SDB
             </span>
-            <span className="font-extrabold text-sm tracking-wide bg-gradient-to-r from-white via-[#dedede] to-cyber-cyan bg-clip-text text-transparent">
-              SENTINEL<span className="text-cyber-cyan">DB</span>
+            <span className="font-extrabold text-sm tracking-wide bg-gradient-to-r from-white via-[#dedede] to-multi-model-cyan bg-clip-text text-transparent">
+              SENTINEL<span className="text-multi-model-cyan">DB</span>
             </span>
             <span className="text-[9px] uppercase tracking-widest text-[#7c3aed] border border-[#7c3aed]/30 px-1 rounded bg-[#7c3aed]/5 font-mono ml-2">
               v1.2.0
@@ -1260,11 +1260,11 @@ export default function App() {
 
           {/* Connection Status indicator */}
           <div className="flex items-center gap-2 text-[11px]">
-            <span className={`w-2 h-2 rounded-full ${connectionStatus.connected ? 'bg-cyber-green animate-pulse shadow-green-glow' : 'bg-cyber-red animate-pulse shadow-cyan-glow'}`} />
-            <span className={connectionStatus.connected ? 'text-cyber-green' : 'text-cyber-red font-semibold'}>
+            <span className={`w-2 h-2 rounded-full ${connectionStatus.connected ? 'bg-multi-model-green animate-pulse shadow-green-glow' : 'bg-multi-model-red animate-pulse shadow-cyan-glow'}`} />
+            <span className={connectionStatus.connected ? 'text-multi-model-green' : 'text-multi-model-red font-semibold'}>
               {connectionStatus.connected ? 'Atlas Cluster Connected' : 'Local Sandbox Mode'}
             </span>
-            <span className="text-cyber-muted text-[10px] max-w-[200px] truncate font-mono">
+            <span className="text-multi-model-muted text-[10px] max-w-[200px] truncate font-mono">
               ({connectionStatus.connected ? activeDatabase : 'in-memory Mock'})
             </span>
           </div>
@@ -1272,14 +1272,14 @@ export default function App() {
 
         <div className="flex items-center gap-4">
           <div className="text-[11px] text-right">
-            <span className="text-cyber-muted block text-[10px]">User Role</span>
-            <span className="text-cyber-cyan font-mono font-semibold">DBA_ADMIN@prismdb</span>
+            <span className="text-multi-model-muted block text-[10px]">User Role</span>
+            <span className="text-multi-model-cyan font-mono font-semibold">DBA_ADMIN@prismdb</span>
           </div>
 
           {/* Factory Seed reset */}
           <button
             onClick={handleFactoryReset}
-            className="flex items-center gap-1 px-2.5 py-1 text-[10px] uppercase font-mono font-bold tracking-wider rounded border border-cyber-purple/40 hover:border-cyber-purple text-cyber-purple hover:bg-cyber-purple/10 transition-colors"
+            className="flex items-center gap-1 px-2.5 py-1 text-[10px] uppercase font-mono font-bold tracking-wider rounded border border-multi-model-purple/40 hover:border-multi-model-purple text-multi-model-purple hover:bg-multi-model-purple/10 transition-colors"
           >
             <RefreshCw className="w-3 h-3" /> Reset Seeder
           </button>
@@ -1300,19 +1300,19 @@ export default function App() {
           <div className="flex border-b border-white/5 text-[10px] font-mono tracking-wider font-semibold">
             <button
               onClick={() => setActiveSidebarTab('explorer')}
-              className={`flex-1 py-2 text-center border-b ${activeSidebarTab === 'explorer' ? 'text-cyber-cyan border-cyber-cyan bg-white/5' : 'text-cyber-muted border-transparent hover:text-white'}`}
+              className={`flex-1 py-2 text-center border-b ${activeSidebarTab === 'explorer' ? 'text-multi-model-cyan border-multi-model-cyan bg-white/5' : 'text-multi-model-muted border-transparent hover:text-white'}`}
             >
               EXPLORER
             </button>
             <button
               onClick={() => setActiveSidebarTab('sample')}
-              className={`flex-1 py-2 text-center border-b ${activeSidebarTab === 'sample' ? 'text-cyber-purple border-cyber-purple bg-white/5' : 'text-cyber-muted border-transparent hover:text-white'}`}
+              className={`flex-1 py-2 text-center border-b ${activeSidebarTab === 'sample' ? 'text-multi-model-purple border-multi-model-purple bg-white/5' : 'text-multi-model-muted border-transparent hover:text-white'}`}
             >
               TEMPLATES
             </button>
             <button
               onClick={() => setActiveSidebarTab('history')}
-              className={`flex-1 py-2 text-center border-b ${activeSidebarTab === 'history' ? 'text-cyber-green border-cyber-green bg-white/5' : 'text-cyber-muted border-transparent hover:text-white'}`}
+              className={`flex-1 py-2 text-center border-b ${activeSidebarTab === 'history' ? 'text-multi-model-green border-multi-model-green bg-white/5' : 'text-multi-model-muted border-transparent hover:text-white'}`}
             >
               LOGS
             </button>
@@ -1330,14 +1330,14 @@ export default function App() {
                     placeholder="Search tables..."
                     value={tableSearchText}
                     onChange={(e) => setTableSearchText(e.target.value)}
-                    className="w-full h-7 pl-7 pr-3 text-[11px] bg-white/5 border border-white/10 rounded focus:border-cyber-cyan focus:outline-none text-cyber-text"
+                    className="w-full h-7 pl-7 pr-3 text-[11px] bg-white/5 border border-white/10 rounded focus:border-multi-model-cyan focus:outline-none text-multi-model-text"
                   />
-                  <Search className="w-3.5 h-3.5 absolute left-2.5 top-1.5 text-cyber-muted" />
+                  <Search className="w-3.5 h-3.5 absolute left-2.5 top-1.5 text-multi-model-muted" />
                 </div>
 
                 <div className="space-y-1">
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-cyber-cyan py-1">
-                    <Database className="w-3.5 h-3.5 text-cyber-cyan" />
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-multi-model-cyan py-1">
+                    <Database className="w-3.5 h-3.5 text-multi-model-cyan" />
                     <span>{activeDatabase}</span>
                   </div>
 
@@ -1353,13 +1353,13 @@ export default function App() {
                               <div
                                 onClick={() => handleSelectTable(table.name)}
                                 onContextMenu={(e) => handleTableRightClick(e, activeDatabase, table.name)}
-                                className={`group flex items-center justify-between pl-2 pr-1 py-1 rounded cursor-pointer transition-colors ${isSel ? 'bg-cyber-cyan/10 text-cyber-cyan border-l-2 border-cyber-cyan' : 'hover:bg-white/5 text-cyber-muted hover:text-cyber-text'}`}
+                                className={`group flex items-center justify-between pl-2 pr-1 py-1 rounded cursor-pointer transition-colors ${isSel ? 'bg-multi-model-cyan/10 text-multi-model-cyan border-l-2 border-multi-model-cyan' : 'hover:bg-white/5 text-multi-model-muted hover:text-multi-model-text'}`}
                               >
                                 <div className="flex items-center gap-1.5 text-[11px] font-mono">
-                                  <TableIcon className="w-3 h-3 text-cyber-muted group-hover:text-cyber-text" />
+                                  <TableIcon className="w-3 h-3 text-multi-model-muted group-hover:text-multi-model-text" />
                                   <span>{table.name}</span>
                                 </div>
-                                <span className="text-[9px] font-mono font-bold bg-white/10 text-cyber-muted px-1.5 py-0.5 rounded-full">
+                                <span className="text-[9px] font-mono font-bold bg-white/10 text-multi-model-muted px-1.5 py-0.5 rounded-full">
                                   {table.rowCount}
                                 </span>
                               </div>
@@ -1368,10 +1368,10 @@ export default function App() {
                               {isSel && (
                                 <div className="pl-6 space-y-0.5 border-l border-white/5 ml-3 my-0.5">
                                   {table.columns.map(col => (
-                                    <div key={col.name} className="flex items-center gap-1 text-[10px] text-cyber-muted py-0.5">
+                                    <div key={col.name} className="flex items-center gap-1 text-[10px] text-multi-model-muted py-0.5">
                                       <span className="w-1 h-1 rounded-full bg-white/20" />
                                       <span className="font-mono text-white/70">{col.name}</span>
-                                      <span className="italic text-[9px] text-cyber-muted">
+                                      <span className="italic text-[9px] text-multi-model-muted">
                                         ({col.type.toLowerCase()}
                                         {col.isPrimaryKey ? ', PK' : ''}
                                         {col.isNotNull ? ', NOT NULL' : ''}
@@ -1385,7 +1385,7 @@ export default function App() {
                           );
                         })
                     ) : (
-                      <div className="text-[10px] text-cyber-muted italic pl-2">No tables found.</div>
+                      <div className="text-[10px] text-multi-model-muted italic pl-2">No tables found.</div>
                     )}
                   </div>
                 </div>
@@ -1395,7 +1395,7 @@ export default function App() {
             {/* tab: SAMPLE PRELOADED QUERIES */}
             {activeSidebarTab === 'sample' && (
               <div className="space-y-2">
-                <div className="flex items-center gap-1 text-xs text-cyber-purple font-mono mb-2">
+                <div className="flex items-center gap-1 text-xs text-multi-model-purple font-mono mb-2">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Click to run template:</span>
                 </div>
@@ -1404,10 +1404,10 @@ export default function App() {
                     <button
                       key={idx}
                       onClick={() => handleSelectSample(item.sql)}
-                      className="w-full text-left p-2 rounded bg-white/5 hover:bg-cyber-purple/10 border border-white/5 hover:border-cyber-purple/30 text-[11px] transition-colors"
+                      className="w-full text-left p-2 rounded bg-white/5 hover:bg-multi-model-purple/10 border border-white/5 hover:border-multi-model-purple/30 text-[11px] transition-colors"
                     >
-                      <div className="font-semibold text-cyber-purple mb-0.5 font-mono">{item.title}</div>
-                      <pre className="text-[9px] text-cyber-muted overflow-hidden text-ellipsis whitespace-nowrap font-mono">{item.sql}</pre>
+                      <div className="font-semibold text-multi-model-purple mb-0.5 font-mono">{item.title}</div>
+                      <pre className="text-[9px] text-multi-model-muted overflow-hidden text-ellipsis whitespace-nowrap font-mono">{item.sql}</pre>
                     </button>
                   ))}
                 </div>
@@ -1417,9 +1417,9 @@ export default function App() {
             {/* tab: QUERY HISTORY LOGS (Last 50) */}
             {activeSidebarTab === 'history' && (
               <div className="space-y-2">
-                <div className="flex items-center justify-between text-xs text-cyber-green font-mono mb-2">
+                <div className="flex items-center justify-between text-xs text-multi-model-green font-mono mb-2">
                   <span className="flex items-center gap-1"><HistoryIcon className="w-3.5 h-3.5" /> Query History Logs</span>
-                  <span className="text-[9px] text-cyber-muted">({queryHistory.length} run)</span>
+                  <span className="text-[9px] text-multi-model-muted">({queryHistory.length} run)</span>
                 </div>
 
                 <div className="space-y-1.5">
@@ -1427,17 +1427,17 @@ export default function App() {
                     <button
                       key={idx}
                       onClick={() => handleSelectHistory(item.query)}
-                      className="w-full text-left p-2 rounded bg-white/5 hover:bg-cyber-green/10 border border-white/5 hover:border-cyber-green/30 text-[10px] transition-colors font-mono"
+                      className="w-full text-left p-2 rounded bg-white/5 hover:bg-multi-model-green/10 border border-white/5 hover:border-multi-model-green/30 text-[10px] transition-colors font-mono"
                     >
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[9px] text-cyber-muted">{new Date(item.timestamp).toLocaleTimeString()}</span>
+                        <span className="text-[9px] text-multi-model-muted">{new Date(item.timestamp).toLocaleTimeString()}</span>
                         <div className="flex items-center gap-1">
-                          <span className={`w-1.5 h-1.5 rounded-full ${item.success ? 'bg-cyber-green' : 'bg-cyber-red'}`} />
+                          <span className={`w-1.5 h-1.5 rounded-full ${item.success ? 'bg-multi-model-green' : 'bg-multi-model-red'}`} />
                           <span className="text-[9px] text-white">{item.executionTimeMs}ms</span>
                         </div>
                       </div>
                       <pre className="text-[9.5px] text-white/80 overflow-x-auto whitespace-pre">{item.query}</pre>
-                      {item.error && <p className="text-cyber-red text-[8.5px] truncate mt-1">{item.error}</p>}
+                      {item.error && <p className="text-multi-model-red text-[8.5px] truncate mt-1">{item.error}</p>}
                     </button>
                   ))}
                 </div>
@@ -1465,7 +1465,7 @@ export default function App() {
                   <div
                     key={tab.id}
                     onClick={() => setActiveTabId(tab.id)}
-                    className={`group flex items-center gap-2 px-3 h-8 text-[11px] font-mono cursor-pointer rounded-t border-t border-x transition-colors ${isActive ? 'bg-cyber-card text-cyber-cyan border-white/10' : 'bg-[#0f141c]/50 text-cyber-muted border-transparent hover:text-white'}`}
+                    className={`group flex items-center gap-2 px-3 h-8 text-[11px] font-mono cursor-pointer rounded-t border-t border-x transition-colors ${isActive ? 'bg-multi-model-card text-multi-model-cyan border-white/10' : 'bg-[#0f141c]/50 text-multi-model-muted border-transparent hover:text-white'}`}
                   >
                     <span>{tab.title}</span>
                     {tab.inTransaction && (
@@ -1473,7 +1473,7 @@ export default function App() {
                     )}
                     <button
                       onClick={(e) => handleCloseTab(tab.id, e)}
-                      className="opacity-0 group-hover:opacity-100 hover:text-cyber-red"
+                      className="opacity-0 group-hover:opacity-100 hover:text-multi-model-red"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -1483,19 +1483,19 @@ export default function App() {
               
               <button
                 onClick={handleAddTab}
-                className="p-1 rounded text-cyber-muted hover:text-cyber-cyan hover:bg-white/5 ml-1 transition-colors"
+                className="p-1 rounded text-multi-model-muted hover:text-multi-model-cyan hover:bg-white/5 ml-1 transition-colors"
               >
                 <Plus className="w-3.5 h-3.5" />
               </button>
             </div>
 
-            <div className="text-[11px] font-mono text-cyber-muted hidden md:block">
+            <div className="text-[11px] font-mono text-multi-model-muted hidden md:block">
               {activeDatabase} Database Workbench
             </div>
           </div>
 
           {/* QUERY EDITOR CONTAINER */}
-          <div className="flex-1 flex flex-col min-h-0 relative bg-cyber-bg">
+          <div className="flex-1 flex flex-col min-h-0 relative bg-multi-model-bg">
             
             {/* Syntax Highlighting IDE Code area */}
             <div className="flex-1 relative overflow-hidden font-mono text-xs">
@@ -1550,13 +1550,13 @@ export default function App() {
                     left: '120px',
                     zIndex: 60
                   }}
-                  className="w-48 bg-cyber-card border border-white/10 rounded shadow-cyan-glow p-1 text-[11px] font-mono"
+                  className="w-48 bg-multi-model-card border border-white/10 rounded shadow-cyan-glow p-1 text-[11px] font-mono"
                 >
                   {autocompleteSuggestions.map((item, idx) => (
                     <div
                       key={item}
                       onClick={() => insertSuggestion(item)}
-                      className={`px-2 py-1 rounded cursor-pointer ${idx === activeSuggestionIdx ? 'bg-cyber-cyan text-black font-semibold' : 'text-white hover:bg-white/5'}`}
+                      className={`px-2 py-1 rounded cursor-pointer ${idx === activeSuggestionIdx ? 'bg-multi-model-cyan text-black font-semibold' : 'text-white hover:bg-white/5'}`}
                     >
                       {item}
                     </div>
@@ -1567,7 +1567,7 @@ export default function App() {
 
             {/* ERROR DISPLAY AREA */}
             {activeTab.error && (
-              <div className="mx-4 mb-2 p-2 bg-cyber-red/10 border border-cyber-red/20 rounded flex items-start gap-2 text-cyber-red text-[11px] font-mono">
+              <div className="mx-4 mb-2 p-2 bg-multi-model-red/10 border border-multi-model-red/20 rounded flex items-start gap-2 text-multi-model-red text-[11px] font-mono">
                 <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold uppercase">Error near line {activeTab.error.line}, col {activeTab.error.column}: </span>
@@ -1582,7 +1582,7 @@ export default function App() {
                 <button
                   onClick={() => handleRunQuery()}
                   disabled={activeTab.loading}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded bg-cyber-cyan hover:bg-[#00b0d6] text-black font-bold font-mono text-[11px] uppercase transition-colors shadow-cyan-glow disabled:opacity-50"
+                  className="flex items-center gap-1.5 px-3 py-1 rounded bg-multi-model-cyan hover:bg-[#00b0d6] text-black font-bold font-mono text-[11px] uppercase transition-colors shadow-cyan-glow disabled:opacity-50"
                 >
                   <Play className="w-3.5 h-3.5 fill-black" />
                   {activeTab.loading ? 'Running...' : 'Execute (Ctrl+↵)'}
@@ -1597,19 +1597,19 @@ export default function App() {
 
                 <button
                   onClick={handleFormatQuery}
-                  className="px-2.5 py-1 text-[10px] font-mono border border-white/10 hover:border-white/20 text-cyber-muted hover:text-white rounded transition-colors"
+                  className="px-2.5 py-1 text-[10px] font-mono border border-white/10 hover:border-white/20 text-multi-model-muted hover:text-white rounded transition-colors"
                 >
                   Beautify Query
                 </button>
                 <button
                   onClick={handleClearEditor}
-                  className="px-2.5 py-1 text-[10px] font-mono border border-white/10 hover:border-white/20 text-cyber-muted hover:text-white rounded transition-colors"
+                  className="px-2.5 py-1 text-[10px] font-mono border border-white/10 hover:border-white/20 text-multi-model-muted hover:text-white rounded transition-colors"
                 >
                   Clear Editor
                 </button>
               </div>
 
-              <div className="flex items-center gap-3 text-[10px] font-mono text-cyber-muted">
+              <div className="flex items-center gap-3 text-[10px] font-mono text-multi-model-muted">
                 <span>Ctrl+Space: Autocomplete</span>
                 <span>•</span>
                 <span>F5: Reload tree</span>
@@ -1621,7 +1621,7 @@ export default function App() {
           {/* 3. BOTTOM RESULTS & GRID DISPLAY PANEL */}
           <section
             style={{ height: `${bottomHeight}px` }}
-            className="border-t border-white/5 bg-cyber-card/45 relative flex flex-col min-h-0"
+            className="border-t border-white/5 bg-multi-model-card/45 relative flex flex-col min-h-0"
           >
             {/* Bottom Panel resize handle */}
             <div
@@ -1634,20 +1634,20 @@ export default function App() {
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => setBottomTab('grid')}
-                  className={`px-3 h-8 text-[11px] font-mono font-semibold transition-colors ${bottomTab === 'grid' ? 'text-cyber-cyan border-b-2 border-cyber-cyan bg-white/[0.02]' : 'text-cyber-muted hover:text-white'}`}
+                  className={`px-3 h-8 text-[11px] font-mono font-semibold transition-colors ${bottomTab === 'grid' ? 'text-multi-model-cyan border-b-2 border-multi-model-cyan bg-white/[0.02]' : 'text-multi-model-muted hover:text-white'}`}
                 >
                   RESULTS GRID
                 </button>
                 <button
                   onClick={() => setBottomTab('analytics')}
-                  className={`px-3 h-8 text-[11px] font-mono font-semibold transition-colors ${bottomTab === 'analytics' ? 'text-cyber-purple border-b-2 border-cyber-purple bg-white/[0.02]' : 'text-cyber-muted hover:text-white'}`}
+                  className={`px-3 h-8 text-[11px] font-mono font-semibold transition-colors ${bottomTab === 'analytics' ? 'text-multi-model-purple border-b-2 border-multi-model-purple bg-white/[0.02]' : 'text-multi-model-muted hover:text-white'}`}
                 >
                   VISUAL ANALYTICS
                 </button>
                 {activeTab.results && activeTab.results.graphVisualizer && (
                   <button
                     onClick={() => setBottomTab('graph')}
-                    className={`px-3 h-8 text-[11px] font-mono font-semibold transition-colors ${bottomTab === 'graph' ? 'text-cyber-green border-b-2 border-cyber-green bg-white/[0.02]' : 'text-cyber-muted hover:text-white'}`}
+                    className={`px-3 h-8 text-[11px] font-mono font-semibold transition-colors ${bottomTab === 'graph' ? 'text-multi-model-green border-b-2 border-multi-model-green bg-white/[0.02]' : 'text-multi-model-muted hover:text-white'}`}
                   >
                     GRAPH VISUALIZER
                   </button>
@@ -1659,13 +1659,13 @@ export default function App() {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handleExportCSV}
-                    className="flex items-center gap-1 px-2 py-0.5 rounded border border-white/10 hover:border-cyber-cyan text-[10px] text-cyber-muted hover:text-cyber-cyan font-mono transition-colors"
+                    className="flex items-center gap-1 px-2 py-0.5 rounded border border-white/10 hover:border-multi-model-cyan text-[10px] text-multi-model-muted hover:text-multi-model-cyan font-mono transition-colors"
                   >
                     <FileSpreadsheet className="w-3 h-3" /> Export CSV
                   </button>
                   <button
                     onClick={handleExportJSON}
-                    className="flex items-center gap-1 px-2 py-0.5 rounded border border-white/10 hover:border-cyber-purple text-[10px] text-cyber-muted hover:text-cyber-purple font-mono transition-colors"
+                    className="flex items-center gap-1 px-2 py-0.5 rounded border border-white/10 hover:border-multi-model-purple text-[10px] text-multi-model-muted hover:text-multi-model-purple font-mono transition-colors"
                   >
                     <FileJson className="w-3 h-3" /> Export JSON
                   </button>
@@ -1682,11 +1682,11 @@ export default function App() {
                 ) : bottomTab === 'graph' && activeTab.results.graphVisualizer ? (
                   <GraphVisualizer graphData={activeTab.results.graphVisualizer} />
                 ) : activeTab.results.rows.length === 0 ? (
-                  <div className="flex flex-col items-center justify-center h-full text-cyber-muted space-y-1 py-8">
-                    <Info className="w-8 h-8 text-cyber-muted/30" />
+                  <div className="flex flex-col items-center justify-center h-full text-multi-model-muted space-y-1 py-8">
+                    <Info className="w-8 h-8 text-multi-model-muted/30" />
                     <p className="text-[11px] font-mono">Statement executed successfully. No rows returned.</p>
                     {activeTab.results.rowsAffected > 0 && (
-                      <p className="text-[10px] text-cyber-green">{activeTab.results.rowsAffected} document records affected</p>
+                      <p className="text-[10px] text-multi-model-green">{activeTab.results.rowsAffected} document records affected</p>
                     )}
                   </div>
                 ) : (
@@ -1703,7 +1703,7 @@ export default function App() {
                                   <div className="flex items-center justify-between">
                                     <span
                                       onClick={() => handleSort(col)}
-                                      className="cursor-pointer hover:text-cyber-cyan pr-1 select-none"
+                                      className="cursor-pointer hover:text-multi-model-cyan pr-1 select-none"
                                     >
                                       {col} {isSorted && (sortConfig.direction === 'ASC' ? '▲' : '▼')}
                                     </span>
@@ -1713,7 +1713,7 @@ export default function App() {
                                       placeholder="Filter..."
                                       value={resultsSearchFilters[col] || ''}
                                       onChange={(e) => handleFilterChange(col, e.target.value)}
-                                      className="w-12 h-4 px-1 text-[8.5px] bg-white/5 border border-white/10 rounded focus:border-cyber-cyan text-cyber-text"
+                                      className="w-12 h-4 px-1 text-[8.5px] bg-white/5 border border-white/10 rounded focus:border-multi-model-cyan text-multi-model-text"
                                     />
                                   </div>
                                 </th>
@@ -1736,7 +1736,7 @@ export default function App() {
                                     key={cellIdx}
                                     onClick={() => handleCellClick(cell)}
                                     title="Click to copy cell value"
-                                    className={`p-1.5 border-r border-white/5 truncate max-w-[200px] cursor-pointer ${isNull ? 'text-cyber-muted italic font-light' : 'text-white/80'}`}
+                                    className={`p-1.5 border-r border-white/5 truncate max-w-[200px] cursor-pointer ${isNull ? 'text-multi-model-muted italic font-light' : 'text-white/80'}`}
                                   >
                                     {displayVal}
                                   </td>
@@ -1749,7 +1749,7 @@ export default function App() {
                     </div>
 
                     {/* Pagination Controls */}
-                    <div className="flex items-center justify-between pt-2 text-[10px] font-mono text-cyber-muted select-none">
+                    <div className="flex items-center justify-between pt-2 text-[10px] font-mono text-multi-model-muted select-none">
                       <div>
                         Showing {(currentPage - 1) * rowsPerPage + 1} to {Math.min(currentPage * rowsPerPage, processedRows.length)} of {processedRows.length} rows
                       </div>
@@ -1791,8 +1791,8 @@ export default function App() {
                   </div>
                 )
               ) : (
-                <div className="flex flex-col items-center justify-center h-full text-cyber-muted/50 py-12">
-                  <Play className="w-10 h-10 mb-2 stroke-1 text-cyber-muted/30" />
+                <div className="flex flex-col items-center justify-center h-full text-multi-model-muted/50 py-12">
+                  <Play className="w-10 h-10 mb-2 stroke-1 text-multi-model-muted/30" />
                   <p className="text-[11px] font-mono">No query results compiled yet. Enter statements in query tab above.</p>
                 </div>
               )}
@@ -1812,7 +1812,7 @@ export default function App() {
             className="resize-handle-h absolute left-0 top-0 bottom-0 z-50"
           />
 
-          <div className="flex border-b border-white/5 text-[10px] font-mono tracking-wider font-semibold h-9 items-center px-3 text-cyber-cyan uppercase">
+          <div className="flex border-b border-white/5 text-[10px] font-mono tracking-wider font-semibold h-9 items-center px-3 text-multi-model-cyan uppercase">
             <span>Schema Inspector</span>
           </div>
 
@@ -1823,10 +1823,10 @@ export default function App() {
                 {/* Table general info */}
                 <div className="glass-panel p-2.5 rounded border border-white/5">
                   <div className="text-[11px] font-semibold text-white/95 font-mono flex items-center gap-1.5 mb-1.5">
-                    <TableIcon className="w-3.5 h-3.5 text-cyber-cyan" />
+                    <TableIcon className="w-3.5 h-3.5 text-multi-model-cyan" />
                     <span>table: {activeTableInfo.name}</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 text-[10px] font-mono text-cyber-muted">
+                  <div className="grid grid-cols-2 gap-2 text-[10px] font-mono text-multi-model-muted">
                     <div>
                       <span>Rows count:</span>
                       <span className="block text-white font-semibold">{activeTableInfo.rowCount}</span>
@@ -1837,11 +1837,11 @@ export default function App() {
                     </div>
                     <div>
                       <span>DB storage:</span>
-                      <span className="block text-cyber-cyan font-bold">~{(activeTableInfo.rowCount * 0.45).toFixed(1)} KB</span>
+                      <span className="block text-multi-model-cyan font-bold">~{(activeTableInfo.rowCount * 0.45).toFixed(1)} KB</span>
                     </div>
                     <div>
                       <span>Active indexes:</span>
-                      <span className="block text-cyber-purple font-mono font-bold">
+                      <span className="block text-multi-model-purple font-mono font-bold">
                         {activeTableInfo.indexes.length} ({activeTableInfo.indexes.join(',')})
                       </span>
                     </div>
@@ -1850,7 +1850,7 @@ export default function App() {
 
                 {/* Columns inspection list */}
                 <div className="space-y-1.5">
-                  <h4 className="text-[10px] font-bold text-cyber-purple tracking-widest uppercase">Columns Details</h4>
+                  <h4 className="text-[10px] font-bold text-multi-model-purple tracking-widest uppercase">Columns Details</h4>
                   
                   <div className="space-y-1.5 max-h-[300px] overflow-y-auto pr-1">
                     {activeTableInfo.columns.map(col => (
@@ -1860,17 +1860,17 @@ export default function App() {
                           <div className="flex gap-1">
                             {col.isPrimaryKey && <span className="text-amber-500 bg-amber-500/10 border border-amber-500/20 px-1 rounded text-[8px] font-bold">PK</span>}
                             {col.isNotNull && <span className="text-rose-500 bg-rose-500/10 border border-rose-500/20 px-1 rounded text-[8px] font-bold">NOT NULL</span>}
-                            {col.isUnique && <span className="text-cyber-purple bg-cyber-purple/10 border border-cyber-purple/20 px-1 rounded text-[8px] font-bold">UNIQUE</span>}
-                            <span className="text-cyber-cyan bg-cyber-cyan/10 px-1 rounded text-[8.5px] uppercase font-bold">{col.type}</span>
+                            {col.isUnique && <span className="text-multi-model-purple bg-multi-model-purple/10 border border-multi-model-purple/20 px-1 rounded text-[8px] font-bold">UNIQUE</span>}
+                            <span className="text-multi-model-cyan bg-multi-model-cyan/10 px-1 rounded text-[8.5px] uppercase font-bold">{col.type}</span>
                           </div>
                         </div>
-                        <div className="grid grid-cols-2 gap-1 text-[9px] text-cyber-muted">
+                        <div className="grid grid-cols-2 gap-1 text-[9px] text-multi-model-muted">
                           <div>Null values: {col.nullPercent}% ({col.nullCount})</div>
                           <div>Unique keys: {col.uniqueCount}</div>
                         </div>
                         {col.sample !== null && col.sample !== undefined && (
-                          <div className="text-[8.5px] text-cyber-muted mt-1 truncate">
-                            sample: <span className="text-cyber-green italic">
+                          <div className="text-[8.5px] text-multi-model-muted mt-1 truncate">
+                            sample: <span className="text-multi-model-green italic">
                               {typeof col.sample === 'object' ? JSON.stringify(col.sample) : String(col.sample)}
                             </span>
                           </div>
@@ -1881,45 +1881,45 @@ export default function App() {
                 </div>
               </div>
             ) : (
-              <div className="flex flex-col items-center justify-center h-48 text-cyber-muted text-[11px] font-mono italic text-center">
-                <Info className="w-8 h-8 text-cyber-muted/30 mb-2" />
+              <div className="flex flex-col items-center justify-center h-48 text-multi-model-muted text-[11px] font-mono italic text-center">
+                <Info className="w-8 h-8 text-multi-model-muted/30 mb-2" />
                 Select a table from the explorer tree to inspect columns metadata
               </div>
             )}
 
             {/* General Database Health Summary */}
             <div className="space-y-2">
-              <h4 className="text-[10px] font-bold text-cyber-green tracking-widest uppercase">Database Statistics</h4>
+              <h4 className="text-[10px] font-bold text-multi-model-green tracking-widest uppercase">Database Statistics</h4>
               
               <div className="glass-panel p-2.5 rounded border border-white/5 space-y-1 text-[10px] font-mono">
-                <div className="flex justify-between text-cyber-muted">
+                <div className="flex justify-between text-multi-model-muted">
                   <span>Total Databases:</span>
                   <span className="text-white font-bold">{schemaData.length}</span>
                 </div>
-                <div className="flex justify-between text-cyber-muted">
+                <div className="flex justify-between text-multi-model-muted">
                   <span>Total Collections:</span>
                   <span className="text-white font-bold">
                     {schemaData.reduce((acc, db) => acc + db.tables.length, 0)}
                   </span>
                 </div>
-                <div className="flex justify-between text-cyber-muted">
+                <div className="flex justify-between text-multi-model-muted">
                   <span>In-Memory Buffer:</span>
-                  <span className="text-cyber-green font-bold">99.8% cache rate</span>
+                  <span className="text-multi-model-green font-bold">99.8% cache rate</span>
                 </div>
-                <div className="flex justify-between text-cyber-muted">
+                <div className="flex justify-between text-multi-model-muted">
                   <span>Network Latency:</span>
-                  <span className="text-cyber-cyan font-bold">0.4ms avg</span>
+                  <span className="text-multi-model-cyan font-bold">0.4ms avg</span>
                 </div>
               </div>
             </div>
 
             {/* Quick action: Visual Analytics dashboard */}
             {activeTab.results && activeTab.results.rows.length > 0 && (
-              <div className="p-3 bg-cyber-cyan/5 border border-cyber-cyan/15 rounded-lg flex flex-col items-center gap-2 select-none">
-                <span className="text-[10px] font-semibold text-cyber-cyan font-mono text-center">Real-Time Data Visualizations</span>
+              <div className="p-3 bg-multi-model-cyan/5 border border-multi-model-cyan/15 rounded-lg flex flex-col items-center gap-2 select-none">
+                <span className="text-[10px] font-semibold text-multi-model-cyan font-mono text-center">Real-Time Data Visualizations</span>
                 <button
                   onClick={() => setBottomTab('analytics')}
-                  className="w-full py-1 bg-cyber-cyan text-black hover:bg-[#00b0d6] font-mono font-bold text-[10px] rounded uppercase flex items-center justify-center gap-1.5 transition-colors shadow-cyan-glow"
+                  className="w-full py-1 bg-multi-model-cyan text-black hover:bg-[#00b0d6] font-mono font-bold text-[10px] rounded uppercase flex items-center justify-center gap-1.5 transition-colors shadow-cyan-glow"
                 >
                   <BarChart2 className="w-3.5 h-3.5" /> View Analytics Charts
                 </button>
@@ -1934,29 +1934,29 @@ export default function App() {
       {/* ---------------------------------------------------------------------
           FOOTER STATUS BAR
           --------------------------------------------------------------------- */}
-      <footer className="h-6 border-t border-white/5 bg-[#0b0c10] px-4 flex items-center justify-between text-[10.5px] font-mono text-cyber-muted select-none z-40">
+      <footer className="h-6 border-t border-white/5 bg-[#0b0c10] px-4 flex items-center justify-between text-[10.5px] font-mono text-multi-model-muted select-none z-40">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
-            <span className={`w-1.5 h-1.5 rounded-full ${connectionStatus.connected ? 'bg-cyber-green' : 'bg-cyber-purple'}`} />
+            <span className={`w-1.5 h-1.5 rounded-full ${connectionStatus.connected ? 'bg-multi-model-green' : 'bg-multi-model-purple'}`} />
             <span className="text-white font-semibold">
               {connectionStatus.connected ? '● Atlas Connected' : '● Local In-Memory Sandbox'}
             </span>
           </div>
           <span>•</span>
-          <span>Active DB: <span className="text-cyber-cyan font-semibold">{activeDatabase}</span></span>
+          <span>Active DB: <span className="text-multi-model-cyan font-semibold">{activeDatabase}</span></span>
           <span>•</span>
           <span>Tables: <span className="text-white">{activeDbData ? activeDbData.tables.length : 0}</span></span>
         </div>
 
         <div className="flex items-center gap-4">
           {copiedCellVal && (
-            <div className="flex items-center gap-1 text-cyber-green font-bold bg-cyber-green/5 px-2 rounded animate-pulse border border-cyber-green/20">
+            <div className="flex items-center gap-1 text-multi-model-green font-bold bg-multi-model-green/5 px-2 rounded animate-pulse border border-multi-model-green/20">
               <Check className="w-3 h-3" /> Cell Copied!
             </div>
           )}
-          <span>Rows returned: <span className="text-cyber-cyan font-bold">{activeTab.results ? activeTab.results.rows.length : 0}</span></span>
+          <span>Rows returned: <span className="text-multi-model-cyan font-bold">{activeTab.results ? activeTab.results.rows.length : 0}</span></span>
           <span>•</span>
-          <span>Execution time: <span className="text-cyber-green font-bold">{activeTab.time !== null ? `${activeTab.time}ms` : '0ms'}</span></span>
+          <span>Execution time: <span className="text-multi-model-green font-bold">{activeTab.time !== null ? `${activeTab.time}ms` : '0ms'}</span></span>
         </div>
       </footer>
 
@@ -1972,20 +1972,20 @@ export default function App() {
         >
           <button
             onClick={handleDescribeTrigger}
-            className="w-full px-3 py-1.5 text-left text-white hover:bg-cyber-cyan hover:text-black flex items-center gap-1.5 transition-colors"
+            className="w-full px-3 py-1.5 text-left text-white hover:bg-multi-model-cyan hover:text-black flex items-center gap-1.5 transition-colors"
           >
             <Info className="w-3 h-3" /> Describe Table
           </button>
           <button
             onClick={handleRenameTrigger}
-            className="w-full px-3 py-1.5 text-left text-white hover:bg-cyber-cyan hover:text-black flex items-center gap-1.5 transition-colors"
+            className="w-full px-3 py-1.5 text-left text-white hover:bg-multi-model-cyan hover:text-black flex items-center gap-1.5 transition-colors"
           >
             <Edit3 className="w-3 h-3" /> Rename Table
           </button>
           <div className="h-px bg-white/10 my-0.5" />
           <button
             onClick={handleDropTrigger}
-            className="w-full px-3 py-1.5 text-left text-cyber-red hover:bg-cyber-red hover:text-white flex items-center gap-1.5 transition-colors"
+            className="w-full px-3 py-1.5 text-left text-multi-model-red hover:bg-multi-model-red hover:text-white flex items-center gap-1.5 transition-colors"
           >
             <Trash2 className="w-3 h-3" /> Drop Table
           </button>
@@ -1995,27 +1995,27 @@ export default function App() {
       {/* Rename Modal */}
       {renameModal && (
         <div className="absolute inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="glass-panel p-4 rounded-lg w-80 border border-cyber-cyan/25 space-y-3 font-mono">
-            <h3 className="text-xs font-bold text-cyber-cyan uppercase">Rename Table</h3>
+          <div className="glass-panel p-4 rounded-lg w-80 border border-multi-model-cyan/25 space-y-3 font-mono">
+            <h3 className="text-xs font-bold text-multi-model-cyan uppercase">Rename Table</h3>
             <div className="space-y-1">
-              <label className="text-[10px] text-cyber-muted">New Name for '{renameModal.tableName}':</label>
+              <label className="text-[10px] text-multi-model-muted">New Name for '{renameModal.tableName}':</label>
               <input
                 type="text"
                 value={renameModal.newName}
                 onChange={(e) => setRenameModal(prev => ({ ...prev, newName: e.target.value }))}
-                className="w-full h-8 px-2 bg-white/5 border border-white/15 focus:border-cyber-cyan rounded focus:outline-none text-xs text-white"
+                className="w-full h-8 px-2 bg-white/5 border border-white/15 focus:border-multi-model-cyan rounded focus:outline-none text-xs text-white"
               />
             </div>
             <div className="flex justify-end gap-2 text-[10px]">
               <button
                 onClick={() => setRenameModal(null)}
-                className="px-3 py-1 rounded border border-white/10 hover:border-white/20 text-cyber-muted hover:text-white"
+                className="px-3 py-1 rounded border border-white/10 hover:border-white/20 text-multi-model-muted hover:text-white"
               >
                 Cancel
               </button>
               <button
                 onClick={executeRenameAction}
-                className="px-3 py-1 rounded bg-cyber-cyan text-black font-bold"
+                className="px-3 py-1 rounded bg-multi-model-cyan text-black font-bold"
               >
                 Rename
               </button>
